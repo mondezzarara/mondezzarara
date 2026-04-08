@@ -1,196 +1,202 @@
 <!DOCTYPE html>
 <html lang="it">
 <head>
-    
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Instagram 2012 Clone</title>
+    <title>Instagram 2012 iPhone 4</title>
     <style>
+        /* Reset base */
+        body, h1, h2, h3, h4, p, ul, li {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
         body {
             font-family: Arial, sans-serif;
-            margin: 0;
             background-color: #fafafa;
+            color: #262626;
+            font-size: 12px;
         }
 
         /* Header */
         header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
+            width: 100%;
+            height: 50px;
             background-color: #fff;
             border-bottom: 1px solid #dbdbdb;
-            padding: 10px 20px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 10px;
             position: fixed;
-            width: 100%;
             top: 0;
-            z-index: 1000;
+            left: 0;
+            z-index: 100;
         }
 
         header .logo {
             font-family: 'Grand Hotel', cursive;
-            font-size: 28px;
-            color: #262626;
+            font-size: 24px;
         }
 
-        header input[type="text"] {
-            padding: 5px;
-            border: 1px solid #dbdbdb;
-            border-radius: 3px;
-            background-color: #fafafa;
-        }
-
-        header nav a {
-            margin-left: 15px;
-            text-decoration: none;
-            color: #262626;
-            font-weight: bold;
-        }
-
-        /* Main content */
-        .container {
+        header .icons {
             display: flex;
-            justify-content: center;
-            margin-top: 70px;
+            gap: 10px;
         }
 
+        header .icons img {
+            width: 24px;
+            height: 24px;
+        }
+
+        /* Feed */
         .feed {
-            width: 500px;
+            margin-top: 50px;
+            width: 100%;
         }
 
         .post {
             background-color: #fff;
             border: 1px solid #dbdbdb;
-            margin-bottom: 20px;
+            margin-bottom: 10px;
         }
 
         .post-header {
             display: flex;
             align-items: center;
-            padding: 10px;
+            padding: 5px;
         }
 
         .post-header img {
-            width: 32px;
-            height: 32px;
+            width: 30px;
+            height: 30px;
             border-radius: 50%;
-            margin-right: 10px;
+            margin-right: 8px;
         }
 
         .post-image img {
             width: 100%;
+            display: block;
         }
 
         .post-caption {
-            padding: 10px;
-            font-size: 14px;
-            color: #262626;
+            padding: 5px;
         }
 
-        /* Sidebar */
-        .sidebar {
-            width: 250px;
-            margin-left: 20px;
-        }
-
-        .profile {
+        /* Sidebar / mobile: tutto sotto feed */
+        .profile, .suggestions {
+            width: 100%;
             background-color: #fff;
             border: 1px solid #dbdbdb;
-            padding: 10px;
-            display: flex;
-            align-items: center;
-            margin-bottom: 20px;
+            padding: 5px;
+            margin-bottom: 10px;
         }
 
         .profile img {
-            width: 50px;
-            height: 50px;
+            width: 40px;
+            height: 40px;
             border-radius: 50%;
-            margin-right: 10px;
+            margin-right: 5px;
         }
 
-        .suggestions {
-            background-color: #fff;
-            border: 1px solid #dbdbdb;
-            padding: 10px;
-        }
-
-        .suggestions h4 {
-            margin-top: 0;
+        .profile div {
+            display: inline-block;
+            vertical-align: top;
         }
 
         .suggestions .user {
             display: flex;
             align-items: center;
-            margin-bottom: 10px;
+            margin-bottom: 5px;
         }
 
         .suggestions .user img {
-            width: 32px;
-            height: 32px;
+            width: 30px;
+            height: 30px;
             border-radius: 50%;
-            margin-right: 10px;
+            margin-right: 5px;
+        }
+
+        /* Mobile-specific */
+        @media only screen and (min-width: 321px) {
+            body {
+                display: flex;
+                justify-content: center;
+            }
+
+            .container {
+                display: flex;
+                max-width: 600px;
+            }
+
+            .feed {
+                width: 400px;
+            }
+
+            .sidebar {
+                width: 200px;
+                margin-left: 10px;
+            }
         }
     </style>
 </head>
 <body>
     <header>
         <div class="logo">Instagram</div>
-        <input type="text" placeholder="Cerca">
-        <nav>
-            <a href="#">Home</a>
-            <a href="#">Profilo</a>
-            <a href="#">Messaggi</a>
-        </nav>
+        <div class="icons">
+            <img src="https://via.placeholder.com/24" alt="Home">
+            <img src="https://via.placeholder.com/24" alt="Messaggi">
+        </div>
     </header>
 
-    <div class="container">
-        <div class="feed">
-            <div class="post">
-                <div class="post-header">
-                    <img src="https://via.placeholder.com/32" alt="Avatar">
-                    <strong>utente1</strong>
-                </div>
-                <div class="post-image">
-                    <img src="https://via.placeholder.com/500x500" alt="Post image">
-                </div>
-                <div class="post-caption">
-                    Questo è un post di esempio nel 2012!
-                </div>
+    <div class="feed">
+        <!-- Post 1 -->
+        <div class="post">
+            <div class="post-header">
+                <img src="https://via.placeholder.com/30" alt="Avatar">
+                <strong>utente1</strong>
             </div>
-
-            <div class="post">
-                <div class="post-header">
-                    <img src="https://via.placeholder.com/32" alt="Avatar">
-                    <strong>utente2</strong>
-                </div>
-                <div class="post-image">
-                    <img src="https://via.placeholder.com/500x500" alt="Post image">
-                </div>
-                <div class="post-caption">
-                    Altro post con immagine e didascalia.
-                </div>
+            <div class="post-image">
+                <img src="https://via.placeholder.com/320x320" alt="Post">
+            </div>
+            <div class="post-caption">
+                Questo è un post di esempio su iPhone 4!
             </div>
         </div>
 
-        <div class="sidebar">
-            <div class="profile">
-                <img src="https://via.placeholder.com/50" alt="Profile">
-                <div>
-                    <strong>mio_profilo</strong><br>
-                    <span>Il mio profilo</span>
-                </div>
+        <!-- Post 2 -->
+        <div class="post">
+            <div class="post-header">
+                <img src="https://via.placeholder.com/30" alt="Avatar">
+                <strong>utente2</strong>
             </div>
+            <div class="post-image">
+                <img src="https://via.placeholder.com/320x320" alt="Post">
+            </div>
+            <div class="post-caption">
+                Altro post vintage del 2012.
+            </div>
+        </div>
 
-            <div class="suggestions">
-                <h4>Persone da seguire</h4>
-                <div class="user">
-                    <img src="https://via.placeholder.com/32" alt="User">
-                    <span>utente3</span>
-                </div>
-                <div class="user">
-                    <img src="https://via.placeholder.com/32" alt="User">
-                    <span>utente4</span>
-                </div>
+        <!-- Profilo / suggerimenti sotto feed per mobile -->
+        <div class="profile">
+            <img src="https://via.placeholder.com/40" alt="Profilo">
+            <div>
+                <strong>mio_profilo</strong><br>
+                <span>Il mio profilo</span>
+            </div>
+        </div>
+
+        <div class="suggestions">
+            <h4>Persone da seguire</h4>
+            <div class="user">
+                <img src="https://via.placeholder.com/30" alt="utente3">
+                <span>utente3</span>
+            </div>
+            <div class="user">
+                <img src="https://via.placeholder.com/30" alt="utente4">
+                <span>utente4</span>
             </div>
         </div>
     </div>
